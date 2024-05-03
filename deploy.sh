@@ -6,7 +6,7 @@ CLEAN_MODULE=${2:-false}
 IMAGE_NAME=jspdf
 IMAGE_TAG=latest
 CONTAINER_NAME=jspdf
-PUERTO_CONTAINER=80
+PUERTO_CONTAINER=4200
 red_docker="mandarina"
 
 # si es build crea la imagen del container
@@ -49,4 +49,4 @@ echo "Deploying container"
 docker run -d --name "$CONTAINER_NAME" -p "$PUERTO_CONTAINER":"$PUERTO_CONTAINER" -v "${PWD}/app:/app" --network "${red_docker}" "$IMAGE_NAME":"$IMAGE_TAG"
 
 #echo "Running app"
-#docker exec -it "$CONTAINER_NAME" ng serve -o --host 0.0.0.0 --port 80
+docker exec -it "$CONTAINER_NAME" ng serve -o --host 0.0.0.0 --port 4200

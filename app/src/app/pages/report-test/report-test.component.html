@@ -1,1 +1,60 @@
-<p>report-test works!</p>
+
+{{flexRadio.value | json}}
+<div class="row">
+    <div class="col">
+        <div class="form-check">
+            <input class="form-check-input"
+                   [formControl]="flexRadio"
+                   type="radio"
+                   value="visualizarPDF"
+                   name="flexRadioDisabled"
+                   id="visualizarPDF">
+            <label class="form-check-label" for="visualizarPDF">
+                Visualizar archivo PDF
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input"
+                   [formControl]="flexRadio"
+                   type="radio" name="flexRadioDisabled"
+                   value="descargarPDF"
+                   id="descargarPDF" >
+            <label class="form-check-label" for="descargarPDF">
+                Descargar archivo PDF
+            </label>
+        </div>
+    </div>
+    <div class="col text-end">
+        <button type="button" class="btn btn-primary mb-2" (click)="PrintEvent()">Print</button>
+    </div>
+</div>
+
+<div class="card" style="background-color: white; padding: 10px">
+    <div class="card-title" style="border-bottom: 1px solid #bab9b9">
+        <h4>Impresion de datos</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th>Autor</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Country</th>
+                <th>Language</th>
+                <th>Pages</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{ book.author }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.year }}</td>
+                <td>{{ book.country }}</td>
+                <td>{{ book.language }}</td>
+                <td>{{ book.pages }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
